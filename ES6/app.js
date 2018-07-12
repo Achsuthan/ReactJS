@@ -30,24 +30,45 @@ function_3()
 
 
 /**
- * Part 3 This keyword
+ * Part 3 This keyword and Dynamic Objects
  */
 
  var user = {
      FirstName : "Achsuthan",
      LastName : "Mahendran",
      Age : 26, 
-    //  getAge:  function(){
-    //      console.log(this.Age);
-    //  },
-    //  getFullName : function() {
-    //      console.log(this.FirstName + " " +  this.LastName)
-    //  }
+     getAge:  function() {
+         console.log(this.Age);
+     },
+     getFullName : function() {
+         console.log(this.FirstName + " " +  this.LastName)
+     }
  }
 
  user.getFullName()
  user.getAge()
 
  /**
-  * Dynamic Objects
+  * Part 4 How to use the api responce to object
   */
+  //create dynamic object with name come from API 
+
+  let marks = "score" //this score is later asign to student object if we want to access marks, should use Objectname.[marks]
+
+  let student = {
+      name : "Test",
+      score : 99
+  }
+
+  console.log("Students marks "+ student.score)
+  console.log("Students marks "+ student[marks])
+
+  /**
+   * Part 5 Loops for of loop
+   */
+
+   let phones = ["iPhone", "Samsung", "MI", "Nokia"]
+
+   for (let phone of phones) {
+       console.log("Phone Type " + phone)
+   }
