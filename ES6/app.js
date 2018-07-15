@@ -132,3 +132,26 @@ function_3()
      //delet the details form map object
      map.delete("students")
      console.log("After Deleted "+map.size)
+
+
+     /**
+      * Part 8 Set
+      */
+
+      //set is used to stroe the unique values in the array 
+
+      var setValues = new Set(["index1", "index2", "index1", "index3"])
+      console.log("Set values "+ setValues)
+
+      for (var setValue of setValues){
+          console.log("Set value "+ setValue)
+      }
+
+      //add the values to set
+      setValues.add("Index4")
+
+      //delete the values form set 
+      setValues.delete("index2")
+
+      //search the values form set 
+      console.log("Is Set contain value of index2 "+ setValues.has("index2"))
