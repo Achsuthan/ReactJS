@@ -155,3 +155,49 @@ function_3()
 
       //search the values form set 
       console.log("Is Set contain value of index2 "+ setValues.has("index2"))
+
+      /**
+       * Part 9 Static Functions and getters and setters
+       */
+
+       //static class 
+
+       class staticClass{
+
+        //static key words define the static class and function; so we can access the method without creating the staticClass object
+           static checkStaticClass(){
+               console.log("This is the static class")
+           }
+       }
+
+       staticClass.checkStaticClass()
+
+       //getters and setters
+       class studentClass{
+           //this is the constructor
+           constructor(name){
+               //setting the name to private variable of studentClass
+               this._name = name
+           }
+
+           //set keyword is used to notifity the setters
+           set studentName (name){
+               this._name = name
+           }
+
+           //get keyword is used to notify the getters
+           get studentName() {
+               return this._name
+           }
+       }
+
+       let studentObj = new studentClass("Achsuthan")
+
+       //get the values to studetObject
+       console.log("Student Name "+studentObj.studentName)
+ 
+       //set the values to stduentObject
+       studentObj.studentName = "Mahendran"
+
+        //get the values to studetObject
+        console.log("Student Name "+studentObj.studentName)
