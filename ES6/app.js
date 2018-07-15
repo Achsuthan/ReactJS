@@ -72,3 +72,58 @@ function_3()
    for (let phone of phones) {
        console.log("Phone Type " + phone)
    }
+
+   /**
+    * Part 6 dots 
+    */
+
+    //dotes is used to access convet the muliple values to array
+
+    //Example 1
+    function addMoney(...money) {
+        console.log("money Array " + money)
+        let balance = 0
+        for (let i = 0; i < money.length; i++) {
+            balance += money[i]
+        }
+        return balance
+    }
+    console.log("Money added to account " + addMoney(100,40,50,60,80))
+
+    //Example 2
+    let numbers = [12,34,25,345,622]
+    console.log("Maximum Number "+ Math.max(...numbers))
+
+
+    /**
+     * Part 7 Maps 
+     */
+
+     let students =  {
+         name : "Achsuthan",
+         IT : "IT14108150"
+     }
+     let resutls = {
+         mark1 : 34,
+         mark2 : 99
+     }
+
+     let map = new Map()
+     map.set("students",students)
+     map.set("marks",resutls)
+
+     console.log("Map Object  "+ map)
+
+     //it will print the key objects
+     console.log("Map Keys" + map.keys())
+
+     //get all the keys it will print all the keys
+     for(let key of map.keys()) {
+         console.log("Keys "+ key)
+     }
+
+     //This is will print the object
+     console.log("Values in Student " + map.get('students'))
+     
+     //This will print the student name
+     console.log("Student Name "+ map.get("students").name)
