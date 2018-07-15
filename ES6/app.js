@@ -127,3 +127,8 @@ function_3()
      
      //This will print the student name
      console.log("Student Name "+ map.get("students").name)
+
+
+     //delet the details form map object
+     map.delete("students")
+     console.log("After Deleted "+map.size)
