@@ -214,6 +214,39 @@ function_3()
          let sym1 = Symbol("hello")
          let sym2 = Symbol("hello")
          
-         console.log(sym1 ==== sym2)
+         console.log(sym1 === sym2)
+
+         /**
+          * Part 11 Promis and httpRequest
+          */
+
+          function httpRequest(url) {
+              return new Promise(function (resolve,reject) {
+                  var request = new XMLHttpRequest()
+                  request.open('GET',url)
+
+                  request.onload = function(){
+                    if (request.status == 200 ) {
+                        console.log("Reuqest Success")
+                        resolve(request.response)
+                    }
+                    else {
+                        reject(Error(request.statusText))
+                        console.log("Request failed")
+                    }
+                  }
+                  request.onerror() = function () {
+                      reject(Error("Network Issues"))
+                  }
+                  request.send()
+
+              });
+          }
+
+          httpRequest("https://randomuser.me/api/").then(function(response){
+              console.log("Success")
+          },function(error){
+              console.log("Error there "+error.toString())
+          });
 
 
