@@ -201,3 +201,19 @@ function_3()
 
         //get the values to studetObject
         console.log("Student Name "+studentObj.studentName)
+
+        /***
+         * Part 10 Symbols
+         */
+
+         //symbol is unique 
+
+         let sym = Symbol()
+         console.log("Sysmbol "+ sym.toString())
+
+         let sym1 = Symbol("hello")
+         let sym2 = Symbol("hello")
+         
+         console.log(sym1 ==== sym2)
+
+
