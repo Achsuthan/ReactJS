@@ -220,6 +220,8 @@ function_3()
           * Part 11 Promis and httpRequest
           */
 
+          //promis is used to promiss the http call to return the value when the request any response (Success/Fail)
+
           function httpRequest(url) {
               return new Promise(function (resolve,reject) {
                   var request = new XMLHttpRequest()
