@@ -20,6 +20,10 @@ class App extends Component {
     this.lastname = name
     return this.lastname
   }
+  ClickAndSee() {
+    console.log("Button function Called")
+    this.setState ( {car: this.state.car.reverse()} )
+  }
 
   render() {
     return (
@@ -28,6 +32,8 @@ class App extends Component {
       <h2>{this.props.id} {this.props.name} {this.props.stable}</h2>
       <Header msg = {this.props.id} car = {this.props.car}/>
       <Intro />
+      <h1 onClick = {this.ClickAndSee.bind(this)} >Hello</h1>
+      <h1 onMouseEnter = {this.ClickAndSee.bind(this)} onMouseLeave = {this.ClickAndSee.bind(this)}>Mouse Move</h1>
       <Car car = {this.state.car}/>
       </div>
     );
