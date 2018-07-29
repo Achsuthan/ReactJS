@@ -8,7 +8,14 @@ class Header extends Component {
             {
             //<img src={logo} className="App-logo" alt="logo" />
             }
-            <h1 className="App-title">Welcome to React {this.props.msg}</h1>
+            {/* <h1 className="App-title">Welcome to React {this.props.msg}</h1> */}
+            <div>
+              <p>
+              {this.props.car.map((item,i) => {
+                return " " + item;
+              })}
+              </p>
+            </div>
           </header>
         </div>
       )
