@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getMovies, deleteMovie } from "./services/fakeMovieService";
+import { getMovies, deleteMovie } from "../services/fakeMovieService";
 
 class Movies extends Component {
   state = {
@@ -9,7 +9,27 @@ class Movies extends Component {
     return (
       <div>
         {this.titleMessageFn()}
-        <table className="table">
+      </div>
+    );
+  }
+
+  deleteMovie = id => {
+    console.log("movie id", id);
+    const movies = this.state.movies.filter((movie) =>{
+      return movie._id !== id
+    })
+
+    console.log(movies)
+
+    this.setState({movies})
+  };
+
+  titleMessageFn() {
+    if (this.state.movies.length === 0) return <p>There is no more movies</p>;
+    return (
+    <div>
+      <p> Showing {this.state.movies.length} movies in the database</p>
+      <table className="table">
           <thead>
             <tr>
               <th scope="col">Title</th>
@@ -38,22 +58,7 @@ class Movies extends Component {
             ))}
           </tbody>
         </table>
-      </div>
-    );
-  }
-
-  deleteMovie = id => {
-    console.log("movie id", id);
-    const movie = deleteMovie(id);
-    console.log(movie);
-    this.setState({
-      //   movies: movie
-    });
-  };
-
-  titleMessageFn() {
-    if (this.state.movies.length === 0) return <p>There is no more movies</p>;
-    return <p> Showing {this.state.movies.length} movies in the database</p>;
+    </div>);
   }
 }
 
