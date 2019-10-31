@@ -61,7 +61,7 @@ class App extends Component {
         />
         <main className="container">
           <Counters
-            onRest={this.handlerReset}
+            onReset={this.handlerReset}
             onIncrement={this.handlerIncrement}
             onDelete={this.handlerDelete}
             counters={this.state.counters}
