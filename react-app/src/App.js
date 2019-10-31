@@ -45,6 +45,16 @@ class App extends Component {
     counters[index].value++;
     this.setState({ counters });
   };
+
+  handlerDecrement = counter => {
+    console.log(counter);
+    const counters = [...this.state.counters];
+    const index = counters.indexOf(counter);
+    counters[index] = { ...counter };
+    counters[index].value--;
+    this.setState({ counters });
+  };
+
   handlerReset = () => {
     console.log("Handle Reset");
     const counters = this.state.counters.map(counter => {
@@ -78,6 +88,7 @@ class App extends Component {
             onIncrement={this.handlerIncrement}
             onDelete={this.handlerDelete}
             counters={this.state.counters}
+            onDecrement={this.handlerDecrement}
           />
         </main>
       </div>
