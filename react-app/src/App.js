@@ -25,6 +25,18 @@ class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log("This is app constructor");
+    //1. From the constructor we can strightly asign the value to state we don't need to do setState
+    //2. If we want to asign the value from props to state we need to get the props from the constructor and we need to pass that props to super also
+  }
+
+  componentDidMount() {
+    console.log("This is component did mount");
+    //call the api calls
+  }
+
   handlerIncrement = counter => {
     console.log(counter);
     const counters = [...this.state.counters];
@@ -52,6 +64,7 @@ class App extends Component {
   };
 
   render() {
+    console.log("This is render method");
     return (
       <div>
         <NavBar
