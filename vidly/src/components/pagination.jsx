@@ -45,6 +45,7 @@ const Pagination = props => {
   );
 };
 
+// validation for props value if anything wrong it will give the worning in the console 
 Pagination.propTypes = {
   itemCount: PropType.number.isRequired,
   pageSize: PropType.number.isRequired,

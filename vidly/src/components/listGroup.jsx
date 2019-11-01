@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import { getGenres } from "../services/fakeGenreService";
+
 
 class ListGroup extends Component {
-  state = {
-    genres: getGenres()
-  };
   render() {
-    const allGenres = [{ _id: "1", name: "All Genres" }, ...this.state.genres];
+    console.log("Default Props ", this.props.testingValue)
+    const allGenres = [{ _id: "1", name: "All Genres" }, ...this.props.genres];
     console.log(this.props.selectedGnres);
     return (
       <ul className="list-group">
@@ -28,6 +26,12 @@ class ListGroup extends Component {
       </ul>
     );
   }
+
+}
+
+//set default value for props and we don't need to pass it from parent 
+ListGroup.defaultProps = {
+  testingValue : "Test"
 }
 
 export default ListGroup;

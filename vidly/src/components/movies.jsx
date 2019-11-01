@@ -4,10 +4,12 @@ import Like from "./like";
 import Pagination from "./pagination";
 import { paginate } from "../utils/paginate";
 import ListGroup from "./listGroup";
+import { getGenres } from "../services/fakeGenreService";
 
 class Movies extends Component {
   state = {
     movies: getMovies(),
+    genres: getGenres(),
     pageSize: 4,
     currentPage: 1,
     selectedGenre: "1"
@@ -76,7 +78,7 @@ class Movies extends Component {
         <div className="container">
           <div className="row">
             <div className="col-3">
-              <ListGroup
+              <ListGroup genres= {this.state.genres}
                 selectedGnres={this.state.selectedGenre}
                 onListClick={this.handleListClick}
               />
