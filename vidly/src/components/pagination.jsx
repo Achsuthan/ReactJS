@@ -1,53 +1,55 @@
 import React, { Component } from "react";
 import _ from "lodash";
+import PropType from "prop-types";
 
-class Pagination extends Component {
-  state = {};
-  render() {
-    console.log("Item Count ", this.props.itemCount);
-    console.log("Page size ", this.props.pageSize);
-    const pagesCount = Math.ceil(this.props.itemCount / this.props.pageSize);
-    if (pagesCount == 1) return null;
-    const pages = _.range(1, pagesCount + 1);
+const Pagination = props => {
+  const { itemCount, pageSize, onPageChange, currentPage } = props;
+  console.log("Item Count ", itemCount);
+  console.log("Page size ", pageSize);
+  const pagesCount = Math.ceil(itemCount / pageSize);
+  if (pagesCount == 1) return null;
+  const pages = _.range(1, pagesCount + 1);
 
-    return (
-      <nav aria-label="Page navigation example">
-        <ul className="pagination">
-          <li className="page-item">
-            <a className="page-link" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-              <span className="sr-only">Previous</span>
-            </a>
-          </li>
-          {pages.map(page => (
-            <li
-              key={page}
-              className={
-                page === this.props.currentPage
-                  ? "page-item active"
-                  : "page-item"
-              }
+  return (
+    <nav aria-label="Page navigation example">
+      <ul className="pagination">
+        <li className="page-item">
+          <a className="page-link" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+            <span className="sr-only">Previous</span>
+          </a>
+        </li>
+        {pages.map(page => (
+          <li
+            key={page}
+            className={page === currentPage ? "page-item active" : "page-item"}
+          >
+            <a
+              className="page-link"
+              onClick={() => {
+                onPageChange(page);
+              }}
             >
-              <a
-                className="page-link"
-                onClick={() => {
-                  this.props.onPageChange(page);
-                }}
-              >
-                {page}
-              </a>
-            </li>
-          ))}
-          <li className="page-item">
-            <a className="page-link" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-              <span className="sr-only">Next</span>
+              {page}
             </a>
           </li>
-        </ul>
-      </nav>
-    );
-  }
-}
+        ))}
+        <li className="page-item">
+          <a className="page-link" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+            <span className="sr-only">Next</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+Pagination.propTypes = {
+  itemCount: PropType.number.isRequired,
+  pageSize: PropType.number.isRequired,
+  onPageChange: PropType.func.isRequired,
+  currentPage: PropType.number.isRequired
+};
 
 export default Pagination;
