@@ -13,12 +13,12 @@ const Pagination = props => {
   return (
     <nav aria-label="Page navigation example">
       <ul className="pagination">
-        <li className="page-item">
+        {/* <li className="page-item">
           <a className="page-link" aria-label="Previous">
             <span aria-hidden="true">&laquo;</span>
             <span className="sr-only">Previous</span>
           </a>
-        </li>
+        </li> */}
         {pages.map(page => (
           <li
             key={page}
@@ -34,12 +34,12 @@ const Pagination = props => {
             </a>
           </li>
         ))}
-        <li className="page-item">
+        {/* <li className="page-item">
           <a className="page-link" aria-label="Next">
             <span aria-hidden="true">&raquo;</span>
             <span className="sr-only">Next</span>
           </a>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
