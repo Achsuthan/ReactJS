@@ -49,30 +49,34 @@ class Movies extends Component {
       selectedGenre: selectedGenre._id
     });
 
-    if (selectedGenre._id != "1") {
-      this.setState({
-        movies: getMovies().filter(movie => {
-          return movie.genre._id == selectedGenre._id;
-        })
-      });
-    } else {
-      this.setState({
-        movies: getMovies()
-      });
-    }
+    // if (selectedGenre._id != "1") {
+    //   this.setState({
+    //     movies: getMovies().filter(movie => {
+    //       return movie.genre._id == selectedGenre._id;
+    //     })
+    //   });
+    // } else {
+    //   this.setState({
+    //     movies: getMovies()
+    //   });
+    // }
   };
 
   titleMessageFn() {
-    const { pageSize, currentPage, movies: allMovies } = this.state;
+    const { pageSize, currentPage, movies: allMovies, selectedGenre } = this.state;
     console.log(allMovies);
     console.log(pageSize);
     console.log(currentPage);
+
+    const filtered = selectedGenre == "1" ? allMovies : allMovies.filter((movie) => {return movie.genre._id == selectedGenre})
+
+    console.log("Filtered Array", filtered)
     const movies = paginate(
-      allMovies,
+      filtered,
       this.state.currentPage,
       this.state.pageSize
     );
-    if (allMovies.length === 0) return <p>There is no more movies</p>;
+    if (movies.length === 0) return <p>There is no more movies</p>;
     return (
       <div style={{ marginTop: "40px" }}>
         <div className="container">
@@ -84,7 +88,7 @@ class Movies extends Component {
               />
             </div>
             <div className="col">
-              <p> Showing {allMovies.length} movies in the database</p>
+              <p> Showing {movies.length} movies in the database</p>
               <table className="table">
                 <thead>
                   <tr>
@@ -122,7 +126,7 @@ class Movies extends Component {
                 </tbody>
               </table>
               <Pagination
-                itemCount={allMovies.length}
+                itemCount={filtered.length}
                 currentPage={this.state.currentPage}
                 pageSize={this.state.pageSize}
                 onPageChange={this.handlePageChange}
