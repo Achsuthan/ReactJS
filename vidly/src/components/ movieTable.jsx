@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Like from "./like";
+import TableHeader from "./common/tableHeader";
+import TableBody from "./common/tableBody";
 
 class MovieTable extends Component {
   raiseSort = path => {
     const sortColumn = { ...this.props.sortColumn };
     if (sortColumn.path === path) {
-      sortColumn.order = sortColumn.order == "asc" ? "desc" : "asc";
+      sortColumn.order = sortColumn.order === "asc" ? "desc" : "asc";
     } else {
       sortColumn.path = path;
       sortColumn.order = "asc";
@@ -14,10 +15,11 @@ class MovieTable extends Component {
     this.props.onSort(sortColumn);
   };
   render() {
-    const { movies, onLike, onDelete, onSort } = this.props;
+    const { movies, onLike, onDelete } = this.props;
     return (
       <table className="table">
-        <thead>
+        <TableHeader onSort={this.raiseSort} />
+        {/* <thead>
           <tr>
             <th
               onClick={() => {
@@ -66,8 +68,9 @@ class MovieTable extends Component {
               scope="col"
             ></th>
           </tr>
-        </thead>
-        <tbody>
+        </thead> */}
+        <TableBody movies={movies} onLike={onLike} onDelete={onDelete} />
+        {/* <tbody>
           {movies.map(movie => (
             <tr key={movie._id}>
               <td>{movie.title}</td>
@@ -87,7 +90,7 @@ class MovieTable extends Component {
               </td>
             </tr>
           ))}
-        </tbody>
+        </tbody> */}
       </table>
     );
   }
