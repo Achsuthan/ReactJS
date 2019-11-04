@@ -15,10 +15,10 @@ class MovieTable extends Component {
     this.props.onSort(sortColumn);
   };
   render() {
-    const { movies, onLike, onDelete } = this.props;
+    const { movies, onLike, onDelete, tableHeader } = this.props;
     return (
       <table className="table">
-        <TableHeader onSort={this.raiseSort} />
+        <TableHeader tableHeader={tableHeader} onSort={this.raiseSort} />
         {/* <thead>
           <tr>
             <th

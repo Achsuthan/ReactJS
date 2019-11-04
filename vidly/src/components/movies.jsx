@@ -15,7 +15,31 @@ class Movies extends Component {
     pageSize: 4,
     currentPage: 1,
     selectedGenre: "1",
-    sortColumn: { path: "title", order: "asc" }
+    sortColumn: { path: "title", order: "asc" },
+    tableHeader: [{
+      title: 'Title',
+      content: 'title'
+    },
+    {
+      title: 'Genre',
+      content: 'genre.name'
+    },
+    {
+      title: 'Stock',
+      content: 'numberInStock'
+    },
+    {
+      title: 'Rate',
+      content: 'dailyRentalRate'
+    },
+    {
+      title: 'Favourite',
+      content: ''
+    },
+    {
+      title: '',
+      content: ''
+    }]
   };
   render() {
     return <div>{this.titleMessageFn()}</div>;
@@ -72,8 +96,8 @@ class Movies extends Component {
       selectedGenre === "1"
         ? allMovies
         : allMovies.filter(movie => {
-            return movie.genre._id === selectedGenre;
-          });
+          return movie.genre._id === selectedGenre;
+        });
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
 
@@ -98,6 +122,7 @@ class Movies extends Component {
             <div className="col">
               <p> Showing {movies.length} movies in the database</p>
               <MovieTable
+                tableHeader={this.state.tableHeader}
                 movies={movies}
                 onSort={this.sortHandler}
                 onLike={this.likeMovie}
