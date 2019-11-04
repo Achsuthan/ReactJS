@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import _ from "lodash";
 import PropType from "prop-types";
 
@@ -7,7 +7,7 @@ const Pagination = props => {
   console.log("Item Count ", itemCount);
   console.log("Page size ", pageSize);
   const pagesCount = Math.ceil(itemCount / pageSize);
-  if (pagesCount == 1) return null;
+  if (pagesCount === 1) return null;
   const pages = _.range(1, pagesCount + 1);
 
   return (
@@ -45,7 +45,7 @@ const Pagination = props => {
   );
 };
 
-// validation for props value if anything wrong it will give the worning in the console 
+// validation for props value if anything wrong it will give the worning in the console
 Pagination.propTypes = {
   itemCount: PropType.number.isRequired,
   pageSize: PropType.number.isRequired,
