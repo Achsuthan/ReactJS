@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getMovies, deleteMovie } from "../services/fakeMovieService";
+import { getMovies } from "../services/fakeMovieService";
 
 import Pagination from "./pagination";
 import { paginate } from "../utils/paginate";
@@ -69,10 +69,10 @@ class Movies extends Component {
     console.log(currentPage);
 
     const filtered =
-      selectedGenre == "1"
+      selectedGenre === "1"
         ? allMovies
         : allMovies.filter(movie => {
-            return movie.genre._id == selectedGenre;
+            return movie.genre._id === selectedGenre;
           });
 
     const sorted = _.orderBy(filtered, [sortColumn.path], [sortColumn.order]);
