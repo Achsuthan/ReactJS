@@ -19,56 +19,6 @@ class MovieTable extends Component {
     return (
       <table className="table">
         <TableHeader tableHeader={tableHeader} onSort={this.raiseSort} />
-        {/* <thead>
-          <tr>
-            <th
-              onClick={() => {
-                this.raiseSort("title ");
-              }}
-              scope="col"
-            >
-              Title
-            </th>
-            <th
-              onClick={() => {
-                this.raiseSort("genre.name");
-              }}
-              scope="col"
-            >
-              Genre
-            </th>
-            <th
-              onClick={() => {
-                this.raiseSort("numberInStock");
-              }}
-              scope="col"
-            >
-              Stock
-            </th>
-            <th
-              onClick={() => {
-                this.raiseSort("dailyRentalRate");
-              }}
-              scope="col"
-            >
-              Rate
-            </th>
-            <th
-              onClick={() => {
-                this.raiseSort();
-              }}
-              scope="col"
-            >
-              Favourite
-            </th>
-            <th
-              onClick={() => {
-                this.raiseSort();
-              }}
-              scope="col"
-            ></th>
-          </tr>
-        </thead> */}
         <TableBody movies={movies} onLike={onLike} onDelete={onDelete} />
         {/* <tbody>
           {movies.map(movie => (
