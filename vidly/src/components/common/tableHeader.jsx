@@ -1,59 +1,20 @@
 import React from "react";
 
-const TableHeader = ({ onSort }) => {
+const TableHeader = ({ onSort, tableHeader }) => {
   return (
     <thead>
       <tr>
-        <th
-          onClick={() => {
-            onSort("title ");
-          }}
-          scope="col"
-        >
-          Title
-          <i className="fa fa-fw fa-sort"></i>
-        </th>
-        <th
-          onClick={() => {
-            onSort("genre.name");
-          }}
-          scope="col"
-        >
-          Genre
-          <i className="fa fa-fw fa-sort"></i>
-        </th>
-        <th
-          onClick={() => {
-            onSort("numberInStock");
-          }}
-          scope="col"
-        >
-          Stock
-          <i className="fa fa-fw fa-sort"></i>
-        </th>
-        <th
-          onClick={() => {
-            onSort("dailyRentalRate");
-          }}
-          scope="col"
-        >
-          Rate
-          <i className="fa fa-fw fa-sort"></i>
-        </th>
-        <th
-          onClick={() => {
-            onSort();
-          }}
-          scope="col"
-        >
-          Favourite
-        </th>
-        <th
-          onClick={() => {
-            onSort();
-          }}
-          scope="col"
-        ></th>
+        {tableHeader.map((head) => (
+          <th
+            onClick={() => {
+              onSort(head.content);
+            }}
+            scope="col"
+          >
+            {head.title}
+          {head.content !== '' ? <i className="fa fa-fw fa-sort"></i>: ''}
+          </th>
+        ))}
       </tr>
     </thead>
   );
