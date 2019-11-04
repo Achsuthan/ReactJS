@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 
-const Like = ({ likeHandler, movie }) => {
+const Like = ({ onLikeHandler, movie }) => {
   const className = movie.liked ? "fa fa-heart" : "fa fa-heart-o";
   return (
     <div>
       <i
-        onClick={likeHandler}
+        onClick={onLikeHandler}
         className={className}
         style={{ cursor: "pointer" }}
       ></i>
