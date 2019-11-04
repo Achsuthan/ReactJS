@@ -10,6 +10,7 @@ class Products extends Component {
   };
 
   render() {
+    alert(this.props.sortBy)
     return (
       <div>
         <h1>Products</h1>
