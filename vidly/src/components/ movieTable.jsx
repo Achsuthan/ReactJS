@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import TableHeader from "./common/tableHeader";
 import TableBody from "./common/tableBody";
+import dropdown from 'react-drop-down-searcher'
 
 class MovieTable extends Component {
   raiseSort = path => {
@@ -17,7 +18,19 @@ class MovieTable extends Component {
   render() {
     const { movies, onLike, onDelete, tableHeader } = this.props;
     return (
-      <table className="table">
+      <div>
+        <dropdown
+          placeholder="Dropdown..."
+          isSingle={true}
+          list={[]}
+          labelName="name"
+          selectedList={[]}
+          selectedlabelName="name"
+          toggleItem={val => console.log(val)}
+          handleInputChange={val => console.log(val)}
+        />
+
+<table className="table">
         <TableHeader tableHeader={tableHeader} onSort={this.raiseSort} />
         <TableBody movies={movies} onLike={onLike} onDelete={onDelete} />
         {/* <tbody>
@@ -42,6 +55,8 @@ class MovieTable extends Component {
           ))}
         </tbody> */}
       </table>
+      </div>
+      
     );
   }
 }

@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "multiselect-react-dropdown": "^1.2.4",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-dropdown-select": "^3.6.5",
+    "react-flatpickr": "^3.9.1",
     "react-redux": "^7.1.1",
     "react-scripts": "3.2.0",
     "redux": "^4.0.4"
